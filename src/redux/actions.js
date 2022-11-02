@@ -13,7 +13,9 @@ export function decrementAC() {
 }
 
 export function asyncIncrementAC() {
-    return {
-        type: ASYNC_INCREMENT
+    return function(dispatch) {
+        setTimeout(() => {
+            dispatch(incrementAC())
+        }, 1500)
     }
 }
